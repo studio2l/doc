@@ -21,8 +21,14 @@ zone "2l.com" IN {
 	type master;
 	file "2l.com.zone";
 	allow-transfer { 10.0.0.3; };
+	also-notify { 10.0.0.3; };
 };
 ```
+
+다음은 각 옵션에 대한 간략한 설명이다.
+
+* allow-transfer: 10.0.0.3가 2l.com 존 데이터를 받아가는 것을 허락한다.
+* also-notify: 2l.com 존이 업데이트 되었을 때 10.0.0.3에 업데이트 사실을 알린다.
 
 이 때 2l.com.zone 파일은 /var/named 아래에 존재하게 된다.
 만일 해당 디렉토리가 없다면 named.conf에서 options { directory } 경로를 확인한다.
@@ -41,7 +47,7 @@ zone "2l.com" IN {
 
 #### 셑업시 문제점과 해결방법
 
-##### dumping master file: tmp-w44pgkdsGd: open: permission denied
+##### 다음과 같은 에러가 나며 존 파일이 생성되지 않는다: dumping master file: tmp-w44pgkdsGd: open: permission denied
 
 /var/named의 권한 문제인 줄 알았으나 selinux의 보안규칙 때문에 생긴 문제였다.
 
