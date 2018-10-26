@@ -17,8 +17,8 @@ VFX 스튜디오 내의 대부분의 서버는 인터넷과 연결되어 있지 
 # 현재 디렉토리 아래에 CentOS 레포지터리를 복제한다.
 rsync -avz --delete rsync://ftp.kaist.ac.kr/CentOS/7/os/x86_64 CentOS/7/os
 cd CentOS
-# 우선 github.com/studio2l/static-server 에서 프로그램을 받은 후
-static-server -addr :80
+# 우선 github.com/studio2l/file-server 에서 프로그램을 받은 후
+file-server -addr :80
 ```
 
 웹 브라우저로 localhost에 들어가 본 후 정적 서버가 잘 생성되었다면 서비스에 추가한다.
