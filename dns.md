@@ -54,6 +54,6 @@ zone "2lfilm.com" IN {
 셸에서 다음 명령을 쳐서 named가 master_zone 파일을 고칠수 있도록 한다.
 
 ```
-setsebool named_write_master_zones 1
+setsebool -P named_write_master_zones 1
 ```
 
